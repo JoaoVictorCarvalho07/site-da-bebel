@@ -9,7 +9,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from '@/components/ui/item';
-import { ThreeClickableImages } from '@/components/ui/ThreeClickableImages';
+import { ThreeClickableImages } from '@/components/ThreeClickableImages';
 import { Button } from '@/components/ui/button';
 
 export default function Inicio() {
@@ -35,7 +35,7 @@ export default function Inicio() {
       </>
       <Item className="bg-primary m-1">
         <ItemContent>
-          <ItemTitle>Item titulo</ItemTitle>
+          <ItemTitle>Sobre Mim</ItemTitle>
           <ItemDescription>
             Item descos udfgas ijfha spkdfn asçkdfnb kasjfkç asdjngçkasdn
             fçasdnfkçjasnfç kas ndfçkja sdnfçkjasd asdas asdadasd asdasdsa
@@ -57,7 +57,7 @@ export default function Inicio() {
             </ItemDescription>
           </ItemContent>
           <ItemActions>
-            <Button variant={'outline'}>Action</Button>
+            <Button variant={'default'}>Action</Button>
           </ItemActions>
         </Item>
       </>
