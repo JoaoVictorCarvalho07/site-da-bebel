@@ -3,17 +3,17 @@ import { CarouselSpacing } from '@/components/CarouselSpacing';
 
 export default function SobreMim() {
   const itens = [
-    { src: '/cards/Director.jpg', alt: 'Director 1' },
-    { src: '/cards/Director.jpg', alt: 'Director 2' },
-    { src: '/cards/Director.jpg', alt: 'Director 3' },
-    { src: '/cards/Director.jpg', alt: 'Director 3' },
-    { src: '/cards/Director.jpg', alt: 'Director 3' },
-    { src: '/cards/Director.jpg', alt: 'Director 3' },
-    { src: '/cards/Director.jpg', alt: 'Director 3' },
+    { src: './cards/Director.jpg', alt: 'Director 1' },
+    { src: './cards/Director.jpg', alt: 'Director 2' },
+    { src: './cards/Director.jpg', alt: 'Director 3' },
+    { src: './cards/Director.jpg', alt: 'Director 3' },
+    { src: './cards/Director.jpg', alt: 'Director 3' },
+    { src: './cards/Director.jpg', alt: 'Director 3' },
+    { src: './cards/Director.jpg', alt: 'Director 3' },
   ];
   return (
     <>
-      <div className="px-10 pt-10">
+      <div className="px-10 pt-20">
         <ImageWithWrappedText />
       </div>
       <div>

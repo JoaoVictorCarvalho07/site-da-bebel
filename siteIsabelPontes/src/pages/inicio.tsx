@@ -33,7 +33,7 @@ export default function Inicio() {
           ]}
         />
       </>
-      <Item className="bg-primary m-1">
+      <Item className="bg-foreground m-1 ">
         <ItemContent>
           <ItemTitle>Sobre Mim</ItemTitle>
           <ItemDescription>
@@ -47,7 +47,7 @@ export default function Inicio() {
         </ItemActions>
       </Item>
       <>
-        <Item className="bg-primary m-1">
+        <Item className="bg-foreground m-1 ">
           <ItemContent>
             <ItemTitle>Contato</ItemTitle>
             <ItemDescription>

@@ -6,13 +6,17 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Inicio from './pages/inicio';
 import HomeEditorial from './pages/HomeEditorial';
 import SobreMim from './pages/SobreMim';
+import NavBar from './components/NavBar';
+import ContactSection from './pages/ContactSection';
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<HomeEditorial />} />
         <Route path="/sobre" element={<SobreMim />} />
+        <Route path="/contato" element={<ContactSection />} />
       </Routes>
     </BrowserRouter>
   );

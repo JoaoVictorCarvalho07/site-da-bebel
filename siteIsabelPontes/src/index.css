@@ -6,56 +6,48 @@
 
 @layer base {
   :root {
-    /* seus tokens (pode ser hsl ou oklch; shadcn v4 costuma usar oklch) */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Fundo claro (creme) */
+    --background: 25.7 25.9% 94.7%; /* ~ #FAF7F3 */
+    --foreground: 23 24% 9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 29% 93%; /* ~ #F3E9DD */
+    --card-foreground: 23 24% 9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 33% 97%;
+    --popover-foreground: 23 24% 9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Base (marrom) */
+    --primary: 22 26% 18%; /* ~ #3A2A22 */
+    --primary-foreground: 30 33% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Superfícies */
+    --secondary: 30 29% 93%;
+    --secondary-foreground: 22 26% 18%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 20% 90%;
+    --muted-foreground: 22 12% 38%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* ✅ Verde amazônico como ACCENT */
+    --accent: 166 30% 21%; /* ~ #1F3A34 */
+    --accent-foreground: 30 33% 97%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Danger (vinho) */
+    --destructive: 346 50% 24%; /* ~ #5A1E2C */
+    --destructive-foreground: 30 33% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-  }
+    --border: 24 15% 84%;
+    --input: 24 15% 84%;
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Ring usando verde (fica coeso) */
+    --ring: 166 30% 21%;
+
+    /* ✅ Extras: dourado separado (pra detalhes) */
+    --gold: 43 38% 63%; /* ~ #C9B078 */
+    --gold-soft: 43 52% 85%; /* ~ #E6D3A3 */
+
+    /* Extras (hex que você já tinha) */
+    --bege: #f5e6d3;
+    --gray-light: #e9e3c68a;
   }
 }
 
@@ -90,11 +82,57 @@
   --color-ring: hsl(var(--ring));
   --color-bege: #f5e6d3;
   --color-gray-light: #e9e3c68a;
+
+  --color-gold: hsl(var(--gold));
+  --color-gold-soft: hsl(var(--gold-soft));
+}
+
+@media (prefers-color-scheme: dark) {
+  @layer base {
+    :root {
+      --background: 22 26% 18%;
+      --foreground: 23.5 40.4% 88.8%;
+
+      --card: 22 22% 12%;
+      --card-foreground: 30 33% 97%;
+
+      --popover: 22 22% 12%;
+      --popover-foreground: 30 33% 97%;
+
+      /* Primary invertido */
+      --primary: 30 33% 97%;
+      --primary-foreground: 22 26% 18%;
+
+      --secondary: 22 18% 16%;
+      --secondary-foreground: 30 33% 97%;
+
+      --muted: 22 18% 16%;
+      --muted-foreground: 30 10% 75%;
+
+      /* ✅ Verde no dark (um pouco mais claro pra aparecer) */
+      --accent: 166 26% 28%; /* verde mais legível no dark */
+      --accent-foreground: 30 33% 97%;
+
+      --destructive: 350 42% 32%;
+      --destructive-foreground: 30 33% 97%;
+
+      --border: 30 12% 28%;
+      --input: 30 12% 28%;
+
+      --ring: 166 26% 28%;
+
+      /* dourado no dark */
+      --gold: 43 48% 76%;
+      --gold-soft: 43 60% 88%;
+    }
+  }
 }
 
 #root {
-  color: #e9e3c68a;
   padding: 0 !important;
   margin: 0 !important;
   max-width: none !important;
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  min-height: 100vh;
 }

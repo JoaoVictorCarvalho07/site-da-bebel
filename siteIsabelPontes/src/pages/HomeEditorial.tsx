@@ -39,9 +39,9 @@ const cards: EditorialCard[] = [
 
 export default function HomeEditorial() {
   return (
-    <main className="bg-background text-foreground">
+    <main className="bg-background text-foreground ">
       {/* HERO */}
-      <section className="relative h-[80vh] min-h-[560px] overflow-hidden">
+      <section className="relative h-[80vh] min-h-140 overflow-hidden">
         <img
           src="./hero.jpg"
           alt="Hero"
@@ -124,9 +124,9 @@ export default function HomeEditorial() {
               linguagem, narrativa e experiência.
             </ItemDescription>
           </ItemContent>
-          <ItemActions className="max-w-[30%]">
+          <ItemActions className="max-w-[30%] ">
             <Button
-              className="w-auto max-w-full whitespace-break-spaces max-h-full h-auto"
+              className="w-auto max-w-full whitespace-break-spaces max-h-full h-auto bg-accent text-accent-foreground"
               variant={'outline'}
             >
               <Link to="/sobre">Minha trajetória →</Link>
@@ -143,14 +143,14 @@ export default function HomeEditorial() {
           </ItemContent>
           <ItemActions className="max-w-[30%]">
             <Button
-              className="w-auto max-w-full whitespace-break-spaces max-h-full h-auto"
+              className="w-auto max-w-full whitespace-break-spaces max-h-full h-auto  bg-accent text-accent-foreground"
               variant={'default'}
             >
               <Link to="/contato">Fale comigo →</Link>
             </Button>
           </ItemActions>
         </Item>
-        <Item className="border  border-neutral-600 mt-10">
+        <Item className="border  border-border mt-10">
           <ItemContent className="grow-3 items-center">
             <ItemTitle className="">Contato</ItemTitle>
             <ItemDescription>
@@ -166,7 +166,7 @@ export default function HomeEditorial() {
             </Button>
           </ItemActions>
         </Item>
-        <Item className="border  border-neutral-600 mt-10">
+        <Item className="border  border-border mt-10">
           <ItemContent className="grow-3 items-center">
             <ItemTitle className="">Contato</ItemTitle>
             <ItemDescription>

@@ -8,22 +8,16 @@ import {
 } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
 
-
-
 type Image = {
   src: string;
   alt: string;
   title?: string;
 };
 
-
-
 type Props = {
   items: Image[];
   className?: string;
 };
-
-
 
 export function CarouselSpacing({ items, className }: Props) {
   return (
@@ -36,20 +30,24 @@ export function CarouselSpacing({ items, className }: Props) {
           <CarouselItem
             key={index}
             className="p-1 
-          basis-1/3 md:basis-1/3 lg:basis-1/5 "
+          basis-1/3 md:basis-1/3 lg:basis-1/4 "
           >
             <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-2xl font-semibold">{index + 1}</span>
+              <Card className="rounded-xl  ">
+                <CardContent className="flex aspect-square items-center justify-center p-0  m-0 rounded-xl ">
+                  <img
+                    src={`${item.src}`}
+                    alt={item.alt}
+                    className="w-full rounded-xl"
+                  />
                 </CardContent>
               </Card>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="sm:left-10 left-1/200" />
-      <CarouselNext className="sm:right-10 right-1/200"  />
+      <CarouselPrevious className="sm:left-10 left-1/200 " />
+      <CarouselNext className="sm:right-10 right-1/200" />
     </Carousel>
   );
 }
