@@ -8,6 +8,7 @@ import HomeEditorial from './pages/HomeEditorial';
 import SobreMim from './pages/SobreMim';
 import NavBar from './components/NavBar';
 import ContactSection from './pages/ContactSection';
+import Portfolio from './pages/Portfolio';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<HomeEditorial />} />
         <Route path="/sobre" element={<SobreMim />} />
         <Route path="/contato" element={<ContactSection />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </BrowserRouter>
   );
