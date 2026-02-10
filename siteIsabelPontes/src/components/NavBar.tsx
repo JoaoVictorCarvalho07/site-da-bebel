@@ -56,8 +56,8 @@ export default function Navbar() {
     <header
       className={cn(
         [
-          'text-on-light sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3',
-          'transition-transform duration-300 bg-transparent border-transparent  ',
+          ' text-primary-fixed sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3',
+          'transition-transform duration-300 bg-    --primary-foreground: 30 33% 97%; border-transparent  ',
           visible ? 'translate-y-0  ' : '-translate-y-full ',
         ].join(' '),
       )}
@@ -68,7 +68,7 @@ export default function Navbar() {
         </Link>
 
         {/* links desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-sm text-shadow-black-lg">
+        <nav className="hidden md:flex items-center gap-6 text-sm">
           <Link to="/portfolio" className="hover:underline">
             Portfólio
           </Link>
