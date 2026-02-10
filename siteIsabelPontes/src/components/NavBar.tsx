@@ -56,7 +56,7 @@ export default function Navbar() {
     <header
       className={cn(
         [
-          ' text-background sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3',
+          ' text-primary sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3',
           'transition-transform duration-300 bg-transparent border-transparent  ',
           visible ? 'translate-y-0  ' : '-translate-y-full ',
         ].join(' '),
