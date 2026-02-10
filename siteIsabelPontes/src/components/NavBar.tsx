@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { HamburgerMenu } from './HamburgerMenu';
 import { cn } from '@/lib/utils';
 
@@ -7,6 +7,13 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const lastY = useRef(0);
   const [logoSrc, setLogoSrc] = useState('./logo/logo_isabel.png');
+  const location = useLocation();
+
+  // Determine text color based on current page
+  // SobreMim and Contato use inverse theme (dark text on light background)
+  // Other pages use light text fixed
+  const isDarkThemePage = ['/sobre', '/contato'].includes(location.pathname);
+  const textColorClass = isDarkThemePage ? 'text-primary' : 'text-white';
 
   useEffect(() => {
     const mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -56,9 +63,9 @@ export default function Navbar() {
     <header
       className={cn(
         [
-          ' text-primary-fixed sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3',
-          'transition-transform duration-300 bg-    --primary-foreground: 30 33% 97%; border-transparent  ',
-          visible ? 'translate-y-0  ' : '-translate-y-full ',
+          `${textColorClass} sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3`,
+          'transition-all duration-300 bg-transparent border-transparent',
+          visible ? 'translate-y-0' : '-translate-y-full',
         ].join(' '),
       )}
     >
@@ -68,20 +75,20 @@ export default function Navbar() {
         </Link>
 
         {/* links desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          <Link to="/portfolio" className="hover:text-lg">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+          <Link to="/portfolio" className="transition-opacity hover:opacity-75 hover:underline">
             Portfólio
           </Link>
-          <Link to="/blog" className="hover:underline">
+          <Link to="/blog" className="transition-opacity hover:opacity-75 hover:underline">
             Blog
           </Link>
-          <Link to="/parceiros" className="hover:underline">
+          <Link to="/parceiros" className="transition-opacity hover:opacity-75 hover:underline">
             Parceiros
           </Link>
-          <Link to="/sobre" className="hover:underline">
+          <Link to="/sobre" className="transition-opacity hover:opacity-75 hover:underline">
             Sobre
           </Link>
-          <Link to="/contato" className="hover:underline">
+          <Link to="/contato" className="transition-opacity hover:opacity-75 hover:underline">
             Contato
           </Link>
         </nav>
