@@ -40,7 +40,7 @@ export default function Navbar() {
       const delta = y - lastY.current;
 
       // sempre aparece se estiver bem no topo
-      if (y < 20) {
+      if (y < 25) {
         setVisible(true);
         lastY.current = y;
         return;
