@@ -13,7 +13,7 @@ export default function SobreMim() {
   ];
   return (
     <>
-      <div className="px-10 pt-50">
+      <div className="px-10 pt-20">
         <ImageWithWrappedText />
       </div>
       <div>
