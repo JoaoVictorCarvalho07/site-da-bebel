@@ -68,7 +68,7 @@ export default function Navbar() {
         </Link>
 
         {/* links desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-sm text-shadow-xl">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-shadow-l">
           <Link to="/portfolio" className="hover:underline">
             Portfólio
           </Link>
