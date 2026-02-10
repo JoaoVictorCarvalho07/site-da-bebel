@@ -18,6 +18,8 @@
 
     /* Base (marrom) */
     --primary: 22 26% 18%; /* ~ #3A2A22 */
+        --primary-fixed: 22 26% 18%; /* ~ #3A2A22 */
+
     --primary-foreground: 30 33% 97%;
 
     /* Superfícies */
