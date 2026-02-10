@@ -72,6 +72,12 @@ export default function Navbar() {
           <Link to="/portfolio" className="hover:underline">
             Portfólio
           </Link>
+          <Link to="/blog" className="hover:underline">
+            Blog
+          </Link>
+          <Link to="/parceiros" className="hover:underline">
+            Parceiros
+          </Link>
           <Link to="/sobre" className="hover:underline">
             Sobre
           </Link>
