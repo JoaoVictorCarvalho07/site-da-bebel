@@ -17,6 +17,8 @@ type Item = { to: string; label: string };
 const items: Item[] = [
   { to: '/', label: 'Início' },
   { to: '/portfolio', label: 'Portfólio' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/parceiros', label: 'Parceiros' },
   { to: '/sobre', label: 'Sobre' },
   { to: '/contato', label: 'Contato' },
 ];

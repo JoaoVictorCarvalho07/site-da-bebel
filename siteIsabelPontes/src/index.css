@@ -4,6 +4,41 @@
 /* dark: funcionar do jeito shadcn espera */
 @custom-variant dark (&:is(.dark *));
 
+/* Adaptive text color utilities */
+@layer utilities {
+  /* Use mix-blend-mode to create adaptive text contrast */
+  .text-contrast-auto {
+    mix-blend-mode: lighten;
+    color: #000;
+  }
+
+  .text-contrast-auto-dark {
+    mix-blend-mode: screen;
+    color: #fff;
+  }
+
+  /* Smart text shadows for better contrast over any background */
+  .text-shadow-contrast {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-shadow-contrast-light {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5), 0 1px 6px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Combination - dark text with light shadow for light backgrounds */
+  .text-on-light {
+    @apply text-black;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  }
+
+  /* Combination - light text with dark shadow for dark backgrounds */
+  .text-on-dark {
+    @apply text-white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+}
+
 @layer base {
   :root {
     /* Fundo claro (creme) */
@@ -18,7 +53,10 @@
 
     /* Base (marrom) */
     --primary: 22 26% 18%; /* ~ #3A2A22 */
+    --primary-fixed: 22 26% 18%; /* ~ #3A2A22 */
+
     --primary-foreground: 30 33% 97%;
+        --primary-foreground-fixed: 30 33% 97%;
 
     /* Superfícies */
     --secondary: 30 29% 93%;
@@ -85,6 +123,9 @@
 
   --color-gold: hsl(var(--gold));
   --color-gold-soft: hsl(var(--gold-soft));
+
+  --color-primary-fixed:hsl(var(--primary-fixed));
+    --color-foreground-fixed: hsl(var(--foreground-fixed));
 }
 
 @media (prefers-color-scheme: dark) {
