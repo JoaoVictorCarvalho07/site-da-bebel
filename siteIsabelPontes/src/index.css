@@ -88,6 +88,9 @@
 
   --color-gold: hsl(var(--gold));
   --color-gold-soft: hsl(var(--gold-soft));
+
+  --color-primary-fixed:hsl(var(--primary-fixed));
+    --color-foreground-fixed: hsl(var(--foreground-fixed));
 }
 
 @media (prefers-color-scheme: dark) {
