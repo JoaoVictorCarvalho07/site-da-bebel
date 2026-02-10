@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
-  const [textColor, setTextColor] = useState<'text-white' | 'text-black'>('text-white');
   const lastY = useRef(0);
   const [logoSrc, setLogoSrc] = useState('./logo/logo_isabel.png');
 
@@ -26,31 +25,8 @@ export default function Navbar() {
     return () => mediaDark.removeEventListener('change', onChange);
   }, []);
 
-  /**
-   * Detects the background color at the navbar position and adjusts text color
-   */
-  const detectBackgroundColor = () => {
-    const element = document.elementFromPoint(window.innerWidth / 2, 80);
-    if (!element) return;
-
-    const bgColor = window.getComputedStyle(element).backgroundColor;
-
-    // Parse RGB color and determine if it's dark
-    const rgbMatch = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-    if (rgbMatch) {
-      const r = parseInt(rgbMatch[1]);
-      const g = parseInt(rgbMatch[2]);
-      const b = parseInt(rgbMatch[3]);
-
-      // Calculate luminance using WCAG formula
-      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-      setTextColor(luminance > 0.5 ? 'text-black' : 'text-white');
-    }
-  };
-
   useEffect(() => {
     lastY.current = window.scrollY;
-    detectBackgroundColor();
 
     const onScroll = () => {
       const y = window.scrollY;
@@ -59,7 +35,6 @@ export default function Navbar() {
       // sempre aparece se estiver bem no topo
       if (y < 20) {
         setVisible(true);
-        setTextColor('text-white');
         lastY.current = y;
         return;
       }
@@ -69,9 +44,6 @@ export default function Navbar() {
 
       // desceu -> esconde | subiu -> mostra
       setVisible(delta < 0);
-
-      // Detect background color at current scroll position
-      detectBackgroundColor();
 
       lastY.current = y;
     };
@@ -84,9 +56,9 @@ export default function Navbar() {
     <header
       className={cn(
         [
-          `${textColor} sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3`,
-          'transition-all duration-300 bg-transparent border-transparent shadow-sm',
-          visible ? 'translate-y-0' : '-translate-y-full',
+          'text-on-light sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3',
+          'transition-transform duration-300 bg-transparent border-transparent  ',
+          visible ? 'translate-y-0  ' : '-translate-y-full ',
         ].join(' '),
       )}
     >
@@ -96,20 +68,20 @@ export default function Navbar() {
         </Link>
 
         {/* links desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link to="/portfolio" className="transition-opacity hover:opacity-75 hover:underline">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-shadow-black-lg">
+          <Link to="/portfolio" className="hover:underline">
             Portfólio
           </Link>
-          <Link to="/blog" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/blog" className="hover:underline">
             Blog
           </Link>
-          <Link to="/parceiros" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/parceiros" className="hover:underline">
             Parceiros
           </Link>
-          <Link to="/sobre" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/sobre" className="hover:underline">
             Sobre
           </Link>
-          <Link to="/contato" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/contato" className="hover:underline">
             Contato
           </Link>
         </nav>
