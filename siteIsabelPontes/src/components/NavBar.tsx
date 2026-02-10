@@ -57,7 +57,7 @@ export default function Navbar() {
       className={cn(
         [
           ' text-primary-fixed sticky top-0 z-50 border-b w-full fixed top-0 left-0 right-0 z-50 justify-end px-5 py-3',
-          'transition-transform duration-300 bg-transparent border-transparent  ',
+          'transition-transform duration-300 bg-    --primary-foreground: 30 33% 97%; border-transparent  ',
           visible ? 'translate-y-0  ' : '-translate-y-full ',
         ].join(' '),
       )}
