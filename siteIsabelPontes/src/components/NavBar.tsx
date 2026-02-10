@@ -79,16 +79,16 @@ export default function Navbar() {
           <Link to="/portfolio" className="transition-opacity hover:opacity-75 hover:scale-125">
             Portfólio
           </Link>
-          <Link to="/blog" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/blog" className="transition-opacity hover:opacity-75 hover:scale-125">
             Blog
           </Link>
-          <Link to="/parceiros" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/parceiros" className="transition-opacity hover:opacity-75 hover:scale-125">
             Parceiros
           </Link>
-          <Link to="/sobre" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/sobre" className="transition-opacity hover:opacity-75 hover:scale-125">
             Sobre
           </Link>
-          <Link to="/contato" className="transition-opacity hover:opacity-75 hover:underline">
+          <Link to="/contato" className="transition-opacity hover:opacity-75 hover:scale-125">
             Contato
           </Link>
         </nav>
