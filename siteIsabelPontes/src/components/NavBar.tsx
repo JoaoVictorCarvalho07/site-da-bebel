@@ -76,7 +76,7 @@ export default function Navbar() {
 
         {/* links desktop */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link to="/portfolio" className="transition-opacity hover:opacity-75 hover:text-lg">
+          <Link to="/portfolio" className="transition-opacity hover:opacity-75 hover:scale-125">
             Portfólio
           </Link>
           <Link to="/blog" className="transition-opacity hover:opacity-75 hover:underline">
