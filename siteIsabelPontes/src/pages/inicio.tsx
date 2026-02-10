@@ -4,9 +4,6 @@ import {
   ItemActions,
   ItemContent,
   ItemDescription,
-  ItemFooter,
-  ItemHeader,
-  ItemMedia,
   ItemTitle,
 } from '@/components/ui/item';
 import { ThreeClickableImages } from '@/components/ThreeClickableImages';
