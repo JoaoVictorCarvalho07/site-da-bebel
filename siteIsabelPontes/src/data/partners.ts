@@ -6,9 +6,11 @@ export const partners: Partner[] = [
     name: 'Milena Silva',
     category: 'models',
     image: '/cards/Milena.jpg',
-    description: 'Modelo profissional com experiência em editorials conceituais',
+    description:
+      'Modelo profissional com experiência em editorials conceituais',
     instagram: '@milenasilvaa',
-    testimonial: 'Trabalhar com Isabel é uma experiência transformadora. Sua visão criativa e cuidado com as modelos é incomparável.',
+    testimonial:
+      'Trabalhar com Isabel é uma experiência transformadora. Sua visão criativa e cuidado com as modelos é incomparável.',
   },
   {
     id: 'partner-2',
@@ -18,16 +20,19 @@ export const partners: Partner[] = [
     description: 'Artista de maquiagem especializada em fotografia artística',
     instagram: '@anacostamakeup',
     website: 'https://anacostamakeup.com',
-    testimonial: 'Isabel e eu trabalhamos juntas para criar looks que complementam a visão artística de cada projeto.',
+    testimonial:
+      'Isabel e eu trabalhamos juntas para criar looks que complementam a visão artística de cada projeto.',
   },
   {
     id: 'partner-3',
     name: 'Agência de Modelos Amazonas',
     category: 'agências',
     image: '/cards/MidiaKit.jpg',
-    description: 'Agência de modelos conectando talentos com oportunidades profissionais',
+    description:
+      'Agência de modelos conectando talentos com oportunidades profissionais',
     website: 'https://agenciamodelosamazonas.com',
-    testimonial: 'A excelência de Isabel em direção é reconhecida em toda a comunidade de moda e fotografia.',
+    testimonial:
+      'A excelência de Isabel em direção é reconhecida em toda a comunidade de moda e fotografia.',
   },
   {
     id: 'partner-4',
@@ -44,14 +49,16 @@ export const partners: Partner[] = [
     image: '/cards/Director.jpg',
     description: 'Stylist com expertise em moda editorial e identidade visual',
     instagram: '@mariaestilo',
-    testimonial: 'Colaborar com Isabel é sempre inspirador. Cada projeto é uma oportunidade de criar algo único.',
+    testimonial:
+      'Colaborar com Isabel é sempre inspirador. Cada projeto é uma oportunidade de criar algo único.',
   },
   {
     id: 'partner-6',
     name: 'Beatriz Studio Hair',
     category: 'makeup',
     image: '/cards/MidiaKit.jpg',
-    description: 'Studio especializado em cabelo e estética para fotografia profissional',
+    description:
+      'Studio especializado em cabelo e estética para fotografia profissional',
     instagram: '@beatrizhairstudio',
   },
 ];
