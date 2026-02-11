@@ -12,7 +12,9 @@ const categories: { value: BlogCategory; label: string }[] = [
 ];
 
 export default function Blog() {
-  const [selectedCategory, setSelectedCategory] = useState<BlogCategory | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<BlogCategory | null>(
+    null,
+  );
 
   const filteredPosts = selectedCategory
     ? blogPosts.filter((post) => post.category === selectedCategory)
@@ -22,9 +24,9 @@ export default function Blog() {
   const otherPosts = filteredPosts.filter((post) => !post.featured);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-96 overflow-hidden bg-black">
+      <section className="relative h-[60vh] min-h-96 overflow-hidden bg-background">
         <video
           src="./hero/hero_video.mp4"
           autoPlay
@@ -93,13 +95,17 @@ export default function Blog() {
                     />
                   </div>
                   <div className="p-6">
-                    <span className="text-sm font-semibold text-gray-500">
+                    <span className="text-sm font-semibold text-gray-800">
                       {categories.find((c) => c.value === post.category)?.label}
                     </span>
-                    <h3 className="mt-3 text-2xl font-bold text-black">{post.title}</h3>
+                    <h3 className="mt-3 text-2xl font-bold text-black">
+                      {post.title}
+                    </h3>
                     <p className="mt-3 text-gray-700">{post.excerpt}</p>
-                    <div className="mt-4 flex items-center justify-between text-sm text-gray-600">
-                      <span>{new Date(post.date).toLocaleDateString('pt-BR')}</span>
+                    <div className="mt-4 flex items-center justify-between text-sm text-gray-900">
+                      <span>
+                        {new Date(post.date).toLocaleDateString('pt-BR')}
+                      </span>
                       <span>{post.readTime} min de leitura</span>
                     </div>
                   </div>
@@ -128,13 +134,17 @@ export default function Blog() {
                     />
                   </div>
                   <div className="flex-1">
-                    <span className="text-sm font-semibold text-gray-500">
+                    <span className="text-sm font-semibold text-foreground">
                       {categories.find((c) => c.value === post.category)?.label}
                     </span>
-                    <h3 className="mt-2 text-2xl font-bold text-black">{post.title}</h3>
-                    <p className="mt-3 text-gray-700">{post.excerpt}</p>
-                    <div className="mt-4 flex items-center gap-4 text-sm text-gray-600">
-                      <span>{new Date(post.date).toLocaleDateString('pt-BR')}</span>
+                    <h3 className="mt-2 text-2xl font-bold text-foreground">
+                      {post.title}
+                    </h3>
+                    <p className="mt-3 text-foreground">{post.excerpt}</p>
+                    <div className="mt-4 flex items-center gap-4 text-sm text-card-foreground">
+                      <span>
+                        {new Date(post.date).toLocaleDateString('pt-BR')}
+                      </span>
                       <span>{post.readTime} min de leitura</span>
                     </div>
                   </div>

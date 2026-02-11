@@ -3,7 +3,12 @@ import { portfolioProjects } from '@/data/portfolioData';
 import { PhotoshootCard } from '@/components/PhotoshootCard';
 import { Button } from '@/components/ui/button';
 
-type ProjectCategory = 'all' | 'editorial' | 'direção-criativa' | 'mídia-kit' | 'conceitual';
+type ProjectCategory =
+  | 'all'
+  | 'editorial'
+  | 'direção-criativa'
+  | 'mídia-kit'
+  | 'conceitual';
 
 const categoryLabels: Record<string, string> = {
   all: 'Todos',
@@ -14,7 +19,8 @@ const categoryLabels: Record<string, string> = {
 };
 
 export default function Portfolio() {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
+  const [selectedCategory, setSelectedCategory] =
+    useState<ProjectCategory>('all');
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
 
   const filteredProjects =
@@ -23,7 +29,7 @@ export default function Portfolio() {
       : portfolioProjects.filter((p) => p.category === selectedCategory);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background text-foreground ">
       {/* Hero Section */}
       <section className="relative h-[80vh] min-h-96 overflow-hidden">
         <video
@@ -38,9 +44,12 @@ export default function Portfolio() {
 
         <div className="relative z-10 flex h-full items-end">
           <div className="mx-auto w-full max-w-6xl px-6 pb-20 text-white">
-            <h1 className="max-w-2xl text-5xl font-bold leading-tight">Portfólio de Trabalhos</h1>
+            <h1 className="max-w-2xl text-5xl font-bold leading-tight">
+              Portfólio de Trabalhos
+            </h1>
             <p className="mt-4 max-w-md text-lg text-white/90">
-              Direção criativa, fotografia artística, storytelling e produção de conteúdo.
+              Direção criativa, fotografia artística, storytelling e produção de
+              conteúdo.
             </p>
           </div>
         </div>
@@ -73,13 +82,17 @@ export default function Portfolio() {
               <div className="mb-8">
                 <div className="mb-4 flex items-start justify-between">
                   <div>
-                    <h2 className="text-4xl font-bold text-black">{project.title}</h2>
+                    <h2 className="text-4xl font-bold text-foreground">
+                      {project.title}
+                    </h2>
                     <p className="mt-2 inline-block rounded-full bg-gray-200 px-4 py-1 text-sm font-semibold text-gray-700">
                       {categoryLabels[project.category]}
                     </p>
                   </div>
                 </div>
-                <p className="mt-4 max-w-2xl text-lg text-gray-700">{project.description}</p>
+                <p className="mt-4 max-w-2xl text-lg text-gray-700">
+                  {project.description}
+                </p>
               </div>
 
               {/* Project Image */}
@@ -95,17 +108,21 @@ export default function Portfolio() {
               {project.photoshoots.length > 0 && (
                 <div>
                   <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-black">
+                    <h3 className="text-2xl font-bold text-foreground">
                       Fotosessões ({project.photoshoots.length})
                     </h3>
                     <p className="mt-2 text-gray-600">
-                      Conheça os detalhes de cada sessão, modelos e equipe de produção
+                      Conheça os detalhes de cada sessão, modelos e equipe de
+                      produção
                     </p>
                   </div>
 
                   <div className="grid gap-6 md:grid-cols-2">
                     {project.photoshoots.map((photoshoot) => (
-                      <PhotoshootCard key={photoshoot.id} photoshoot={photoshoot} />
+                      <PhotoshootCard
+                        key={photoshoot.id}
+                        photoshoot={photoshoot}
+                      />
                     ))}
                   </div>
                 </div>
@@ -120,7 +137,7 @@ export default function Portfolio() {
                         expandedProject === project.id ? null : project.id,
                       )
                     }
-                    className="text-sm font-semibold text-black underline transition-all hover:text-gray-700"
+                    className="text-sm font-semibold text-foreground underline transition-all hover:text-gray-700"
                   >
                     {expandedProject === project.id
                       ? 'Ocultar informações adicionais'
@@ -134,10 +151,18 @@ export default function Portfolio() {
                           Total de Pessoas Envolvidas
                         </h4>
                         <p className="text-gray-700">
-                          Modelos: {project.photoshoots.reduce((acc, p) => acc + p.models.length, 0)}
+                          Modelos:{' '}
+                          {project.photoshoots.reduce(
+                            (acc, p) => acc + p.models.length,
+                            0,
+                          )}
                         </p>
                         <p className="text-gray-700">
-                          Equipe: {project.photoshoots.reduce((acc, p) => acc + p.helpers.length, 0)}
+                          Equipe:{' '}
+                          {project.photoshoots.reduce(
+                            (acc, p) => acc + p.helpers.length,
+                            0,
+                          )}
                         </p>
                       </div>
                     </div>
@@ -151,7 +176,9 @@ export default function Portfolio() {
         {/* Empty State */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-lg text-gray-600">Nenhum projeto encontrado nesta categoria.</p>
+            <p className="text-lg text-gray-600">
+              Nenhum projeto encontrado nesta categoria.
+            </p>
           </div>
         )}
       </section>
@@ -159,13 +186,17 @@ export default function Portfolio() {
       {/* Call to Action */}
       <section className="bg-black py-16">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <h2 className="text-3xl font-bold text-white">Interessado em Colaborar?</h2>
+          <h2 className="text-3xl font-bold text-white">
+            Interessado em Colaborar?
+          </h2>
           <p className="mt-4 text-lg text-white/90">
-            Se você é um modelo, stylist, produtor ou parceiro potencial, gostaria de conversar
-            sobre seu próximo projeto.
+            Se você é um modelo, stylist, produtor ou parceiro potencial,
+            gostaria de conversar sobre seu próximo projeto.
           </p>
           <a href="/contato" className="mt-8 inline-block">
-            <Button className="bg-white text-black hover:bg-gray-100">Entre em Contato</Button>
+            <Button className="bg-white text-black hover:bg-gray-100">
+              Entre em Contato
+            </Button>
           </a>
         </div>
       </section>
