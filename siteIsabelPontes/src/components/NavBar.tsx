@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const lastY = useRef(0);
-  const [logoSrc, setLogoSrc] = useState('./logo/logo_isabel2.png');
+  const [logoSrc, setLogoSrc] = useState('/logo/logo_isabel2.png');
   const location = useLocation();
 
   // Determine text color based on current page
@@ -131,4 +131,6 @@ export default function Navbar() {
       </div>
     </header>
   );
+
+  
 }

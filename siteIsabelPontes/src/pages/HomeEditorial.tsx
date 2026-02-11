@@ -43,7 +43,7 @@ export default function HomeEditorial() {
       {/* HERO */}
       <section className="relative h-[80vh] min-h-140 overflow-hidden">
         <img
-          src="./public/hero/hero.jpg"
+          src="/hero/hero.jpg"
           alt="Hero"
           className="absolute inset-0 h-full w-full object-cover object-center md:object-[40%_30%]"
         />

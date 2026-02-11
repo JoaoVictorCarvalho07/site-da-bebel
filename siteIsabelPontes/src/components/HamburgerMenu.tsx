@@ -45,7 +45,7 @@ export function HamburgerMenu() {
                 to={item.to}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-lg px-3 py-2 text-base transition-colors hover:bg-muted',
+                    'rounded-lg px-3 py-2 text-foreground transition-colors hover:bg-muted',
                     isActive && 'bg-muted font-medium',
                   )
                 }
