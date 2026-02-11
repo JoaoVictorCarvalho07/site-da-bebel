@@ -1,4 +1,3 @@
-
 /**
  * ContactSection.jsx
  * - Tailwind only (sem shadcn obrigatório)

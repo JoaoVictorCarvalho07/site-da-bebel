@@ -11,7 +11,8 @@ export const portfolioProjects: PortfolioProject[] = [
       {
         id: 'afrodite-1',
         title: 'Ensaio Afrodite - Parte 1',
-        description: 'Primeiras imagens da série Afrodite com foco em graça e poder feminino',
+        description:
+          'Primeiras imagens da série Afrodite com foco em graça e poder feminino',
         concept: 'Deusa mitológica na modernidade',
         date: '2024-01-10',
         location: 'Manaus, AM',
@@ -48,14 +49,16 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: 'midia-kit',
     title: 'Mídia Kit & Creator',
-    description: 'Conteúdo autêntico com estética elevada para criadores digitais',
+    description:
+      'Conteúdo autêntico com estética elevada para criadores digitais',
     category: 'direção-criativa',
     image: '/cards/MidiaKit.jpg',
     photoshoots: [
       {
         id: 'midia-1',
         title: 'Mídia Kit - Sessão 01',
-        description: 'Fotografia de qualidade cinema para criadores de conteúdo',
+        description:
+          'Fotografia de qualidade cinema para criadores de conteúdo',
         concept: 'Autenticidade com produção profissional',
         date: '2023-12-15',
         location: 'Estúdio Isabel Pontes',

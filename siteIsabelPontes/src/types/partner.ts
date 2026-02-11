@@ -1,4 +1,9 @@
-export type PartnerCategory = 'models' | 'agências' | 'stylists' | 'brands' | 'makeup';
+export type PartnerCategory =
+  | 'models'
+  | 'agências'
+  | 'stylists'
+  | 'brands'
+  | 'makeup';
 
 export interface Partner {
   id: string;

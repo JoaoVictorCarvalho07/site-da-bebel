@@ -11,6 +11,7 @@ Your site now has a comprehensive system for automatically adjusting text color 
 The simplest approach. Use these pre-built CSS classes:
 
 #### `text-on-light` - For light backgrounds
+
 ```jsx
 <div className="bg-white p-6 text-on-light">
   <h1>Título em fundo claro</h1>
@@ -19,6 +20,7 @@ The simplest approach. Use these pre-built CSS classes:
 ```
 
 #### `text-on-dark` - For dark backgrounds
+
 ```jsx
 <div className="bg-black p-6 text-on-dark">
   <h1>Título em fundo escuro</h1>
@@ -27,6 +29,7 @@ The simplest approach. Use these pre-built CSS classes:
 ```
 
 #### `text-shadow-contrast` - Add contrast shadow to any text
+
 ```jsx
 <h1 className="text-white text-shadow-contrast">
   Texto com sombra de contraste
@@ -40,6 +43,7 @@ The simplest approach. Use these pre-built CSS classes:
 Use React components when background color/image is dynamic:
 
 #### `<ContrastText>` - Generic wrapper
+
 ```jsx
 <div className="bg-gradient-to-r from-blue-900 to-blue-600 p-6">
   <ContrastText className="text-lg">
@@ -49,6 +53,7 @@ Use React components when background color/image is dynamic:
 ```
 
 #### `<ContrastHeading>` - For headings (h1-h6)
+
 ```jsx
 <div className="bg-purple-800 p-6">
   <ContrastHeading level={1} className="text-3xl font-bold">
@@ -81,6 +86,7 @@ const isDark = isDarkBackground('#1F3A34');
 ## Real-World Examples
 
 ### Hero Section with Image
+
 ```jsx
 <div
   className="relative h-96 p-8"
@@ -91,37 +97,35 @@ const isDark = isDarkBackground('#1F3A34');
 >
   {/* Dark overlay ensures text readability */}
   <div className="absolute inset-0 bg-black/40" />
-  
+
   <div className="relative z-10">
-    <h1 className="text-on-dark text-4xl font-bold">
-      Título sobre imagem
-    </h1>
-    <p className="text-on-dark mt-4">
-      Descrição do projeto
-    </p>
+    <h1 className="text-on-dark text-4xl font-bold">Título sobre imagem</h1>
+    <p className="text-on-dark mt-4">Descrição do projeto</p>
   </div>
 </div>
 ```
 
 ### Card Grid with Variable Backgrounds
+
 ```jsx
-{cards.map(card => (
-  <div
-    key={card.id}
-    className="p-6 rounded-lg"
-    style={{ backgroundColor: card.color }}
-  >
-    <ContrastHeading level={2} className="text-2xl font-bold">
-      {card.title}
-    </ContrastHeading>
-    <ContrastText className="mt-2">
-      {card.description}
-    </ContrastText>
-  </div>
-))}
+{
+  cards.map((card) => (
+    <div
+      key={card.id}
+      className="p-6 rounded-lg"
+      style={{ backgroundColor: card.color }}
+    >
+      <ContrastHeading level={2} className="text-2xl font-bold">
+        {card.title}
+      </ContrastHeading>
+      <ContrastText className="mt-2">{card.description}</ContrastText>
+    </div>
+  ));
+}
 ```
 
 ### Navigation Bar (Already Implemented)
+
 The NavBar component automatically detects background color as you scroll:
 
 ```jsx
@@ -136,6 +140,7 @@ The NavBar component automatically detects background color as you scroll:
 ## Best Practices
 
 ### ✅ DO
+
 - Use `text-on-light` and `text-on-dark` for solid color backgrounds
 - Use `ContrastText` components for gradient or image backgrounds
 - Always add an overlay (dark or light) over images for text
@@ -143,6 +148,7 @@ The NavBar component automatically detects background color as you scroll:
 - Use CSS shadows to enhance contrast on busy backgrounds
 
 ### ❌ DON'T
+
 - Mix light text with light backgrounds
 - Use white text on yellow or light green without shadows
 - Assume all backgrounds are either fully light or fully dark
@@ -153,6 +159,7 @@ The NavBar component automatically detects background color as you scroll:
 ## Customization
 
 ### Adjust Text Shadow
+
 Edit `src/index.css`:
 
 ```css
@@ -168,6 +175,7 @@ Edit `src/index.css`:
 ```
 
 ### Change Luminance Threshold
+
 Edit `src/lib/contrast.ts`:
 
 ```typescript
@@ -218,6 +226,7 @@ src/
 See `src/components/ContrastGuide.tsx` for a live demo with all approaches.
 
 To view the guide:
+
 1. Add to your App.tsx routes
 2. Navigate to the page
 3. See all examples with light and dark backgrounds

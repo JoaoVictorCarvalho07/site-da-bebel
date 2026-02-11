@@ -10,7 +10,9 @@ export function useContrastText(
   elementRef: React.RefObject<HTMLElement>,
   defaultColor: 'text-white' | 'text-black' = 'text-black',
 ): 'text-white' | 'text-black' {
-  const [textColor, setTextColor] = useState<'text-white' | 'text-black'>(defaultColor);
+  const [textColor, setTextColor] = useState<'text-white' | 'text-black'>(
+    defaultColor,
+  );
 
   useEffect(() => {
     if (!elementRef.current) return;

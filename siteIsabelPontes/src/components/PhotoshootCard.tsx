@@ -33,7 +33,8 @@ export function PhotoshootCard({ photoshoot }: PhotoshootCardProps) {
         </div>
 
         <p className="text-sm text-gray-600">
-          {new Date(photoshoot.date).toLocaleDateString('pt-BR')} • {photoshoot.location}
+          {new Date(photoshoot.date).toLocaleDateString('pt-BR')} •{' '}
+          {photoshoot.location}
         </p>
 
         <p className="mt-3 text-gray-700">{photoshoot.description}</p>
@@ -41,14 +42,18 @@ export function PhotoshootCard({ photoshoot }: PhotoshootCardProps) {
         <div className="mt-4 space-y-3">
           {/* Concept */}
           <div>
-            <p className="text-xs font-semibold uppercase text-gray-600">Conceito</p>
+            <p className="text-xs font-semibold uppercase text-gray-600">
+              Conceito
+            </p>
             <p className="text-sm text-gray-800">{photoshoot.concept}</p>
           </div>
 
           {/* Models */}
           {photoshoot.models.length > 0 && (
             <div>
-              <p className="text-xs font-semibold uppercase text-gray-600">Modelos</p>
+              <p className="text-xs font-semibold uppercase text-gray-600">
+                Modelos
+              </p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {photoshoot.models.map((model) => (
                   <TeamMemberTag key={model.id} member={model} />
@@ -60,7 +65,9 @@ export function PhotoshootCard({ photoshoot }: PhotoshootCardProps) {
           {/* Helpers */}
           {photoshoot.helpers.length > 0 && (
             <div>
-              <p className="text-xs font-semibold uppercase text-gray-600">Equipe</p>
+              <p className="text-xs font-semibold uppercase text-gray-600">
+                Equipe
+              </p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {photoshoot.helpers.map((helper) => (
                   <TeamMemberTag key={helper.id} member={helper} />
@@ -94,7 +101,9 @@ export function PhotoshootCard({ photoshoot }: PhotoshootCardProps) {
 
             {photoshoot.helpers.length > 0 && (
               <div>
-                <h4 className="mb-3 font-semibold text-black">Equipe de Suporte</h4>
+                <h4 className="mb-3 font-semibold text-black">
+                  Equipe de Suporte
+                </h4>
                 <div className="space-y-2">
                   {photoshoot.helpers.map((helper) => (
                     <TeamMemberDetail key={helper.id} member={helper} />

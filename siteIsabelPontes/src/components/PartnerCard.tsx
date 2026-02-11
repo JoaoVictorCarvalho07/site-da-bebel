@@ -30,7 +30,9 @@ export function PartnerCard({ partner }: PartnerCardProps) {
         {partner.testimonial && (
           <div className="mt-4 border-l-4 border-black bg-gray-50 p-4">
             <p className="italic text-gray-800">"{partner.testimonial}"</p>
-            <p className="mt-2 text-sm font-semibold text-gray-600">— {partner.name}</p>
+            <p className="mt-2 text-sm font-semibold text-gray-600">
+              — {partner.name}
+            </p>
           </div>
         )}
 
