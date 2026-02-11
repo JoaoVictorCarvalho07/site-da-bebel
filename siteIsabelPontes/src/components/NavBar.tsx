@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const lastY = useRef(0);
-  const [logoSrc, setLogoSrc] = useState('./logo/logo_isabel.png');
+  const [logoSrc, setLogoSrc] = useState('./logo/logo_isabel2.png');
   const location = useLocation();
 
   // Determine text color based on current page
@@ -15,15 +15,18 @@ export default function Navbar() {
   const isDarkThemePage = ['/sobre', '/contato'].includes(location.pathname);
   const textColorClass = isDarkThemePage ? 'text-primary' : 'text-white';
 
+  console.log(location.pathname);
   useEffect(() => {
     const mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
 
     const onChange = () => {
       console.log('sistema mudou para:', mediaDark.matches ? 'dark' : 'light');
       setLogoSrc(
-        mediaDark.matches
-          ? './logo/logo_isabel_branca.png'
-          : './logo/logo_isabel.png',
+        !isDarkThemePage
+          ? '/logo/logo_isabel_branca.png'
+          : mediaDark.matches
+            ? '/logo/logo_isabel_branca.png'
+            : '/logo/logo_isabel2.png',
       );
     };
 
@@ -31,6 +34,21 @@ export default function Navbar() {
     mediaDark.addEventListener('change', onChange);
     return () => mediaDark.removeEventListener('change', onChange);
   }, []);
+
+  useEffect(() => {
+    const isDarkThemePage = ['/sobre', '/contato'].includes(location.pathname);
+
+    const logoChange = () => {
+      setLogoSrc(
+        !isDarkThemePage
+          ? '/logo/logo_isabel_branca.png'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? '/logo/logo_isabel_branca.png'
+            : '/logo/logo_isabel2.png',
+      );
+    };
+    logoChange();
+  }, [location.pathname]);
 
   useEffect(() => {
     lastY.current = window.scrollY;
@@ -76,19 +94,34 @@ export default function Navbar() {
 
         {/* links desktop */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link to="/portfolio" className="transition-opacity hover:opacity-75 hover:scale-125">
+          <Link
+            to="/portfolio"
+            className="transition-opacity hover:opacity-75 hover:scale-125"
+          >
             Portfólio
           </Link>
-          <Link to="/blog" className="transition-opacity hover:opacity-75 hover:scale-125">
+          <Link
+            to="/blog"
+            className="transition-opacity hover:opacity-75 hover:scale-125"
+          >
             Blog
           </Link>
-          <Link to="/parceiros" className="transition-opacity hover:opacity-75 hover:scale-125">
+          <Link
+            to="/parceiros"
+            className="transition-opacity hover:opacity-75 hover:scale-125"
+          >
             Parceiros
           </Link>
-          <Link to="/sobre" className="transition-opacity hover:opacity-75 hover:scale-125">
+          <Link
+            to="/sobre"
+            className="transition-opacity hover:opacity-75 hover:scale-125"
+          >
             Sobre
           </Link>
-          <Link to="/contato" className="transition-opacity hover:opacity-75 hover:scale-125">
+          <Link
+            to="/contato"
+            className="transition-opacity hover:opacity-75 hover:scale-125"
+          >
             Contato
           </Link>
         </nav>

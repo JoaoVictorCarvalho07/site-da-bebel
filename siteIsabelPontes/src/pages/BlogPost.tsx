@@ -1,18 +1,33 @@
 import { useParams, Link } from 'react-router-dom';
 import { blogPosts } from '@/data/blogPosts';
 import { Button } from '@/components/ui/button';
+import { useEffect, useRef } from 'react';
 
 export default function BlogPost() {
   const { id } = useParams<{ id: string }>();
+  const articleRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (articleRef.current) {
+      articleRef.current.scrollIntoView({
+        behavior: 'smooth', // ou "auto"
+        block: 'start',
+      });
+    }
+  }, [id]); // executa quando muda o post
 
   const post = blogPosts.find((p) => p.id === id);
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-background">
         <section className="mx-auto max-w-2xl px-6 py-16 text-center">
-          <h1 className="text-4xl font-bold text-black">Artigo não encontrado</h1>
-          <p className="mt-4 text-gray-700">Desculpe, este artigo não existe.</p>
+          <h1 className="text-4xl font-bold text-foreground ">
+            Artigo não encontrado
+          </h1>
+          <p className="mt-4 text-gray-700">
+            Desculpe, este artigo não existe.
+          </p>
           <Link to="/blog" className="mt-8 inline-block">
             <Button>Voltar ao Blog</Button>
           </Link>
@@ -23,52 +38,73 @@ export default function BlogPost() {
 
   const currentIndex = blogPosts.findIndex((p) => p.id === id);
   const previousPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+  const nextPost =
+    currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background ">
       {/* Hero Image */}
       <section className="h-[60vh] min-h-96 overflow-hidden">
-        <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
+        <img
+          src={post.image}
+          alt={post.title}
+          className="h-full w-full object-cover"
+        />
       </section>
 
       {/* Content */}
-      <article className="mx-auto max-w-2xl px-6 py-16">
+      <article
+        ref={articleRef}
+        className="mx-auto max-w-2xl px-6 py-16"
+        id="content"
+      >
         {/* Header */}
         <div className="mb-12 border-b pb-8">
-          <div className="mb-4 flex items-center gap-4 text-sm text-gray-600">
+          <div className="mb-4 flex items-center gap-4 text-sm text-foreground">
             <span>{new Date(post.date).toLocaleDateString('pt-BR')}</span>
             <span>•</span>
             <span>{post.readTime} min de leitura</span>
           </div>
-          <h1 className="text-4xl font-bold text-black">{post.title}</h1>
+          <h1 className="text-4xl font-bold text-primary">{post.title}</h1>
           <div className="mt-6 flex items-center gap-4">
             <div>
-              <p className="font-semibold text-black">{post.author}</p>
-              <p className="text-sm text-gray-600">Fotógrafa e Diretora Criativa</p>
+              <p className="font-semibold text-primary">{post.author}</p>
+              <p className="text-sm text-foreground">
+                Fotógrafa e Diretora Criativa
+              </p>
             </div>
           </div>
         </div>
 
         {/* Body */}
         <div className="prose prose-lg max-w-none">
-          <p className="mb-8 text-lg leading-relaxed text-gray-800">{post.content}</p>
+          <p className="mb-8 text-lg leading-relaxed text-foreground">
+            {post.content}
+          </p>
 
           {/* Additional content sections */}
-          <div className="my-12 rounded-lg bg-gray-50 p-8">
+          <div className="my-12 rounded-lg bg-gray-50 p-8 text-black  ">
             <h2 className="mb-4 text-2xl font-bold">Principais Pontos</h2>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 ">
               <li className="flex gap-3">
-                <span className="text-black">•</span>
-                <span>A qualidade técnica e criatividade andam de mãos dadas na fotografia artística</span>
+                <span>•</span>
+                <span>
+                  A qualidade técnica e criatividade andam de mãos dadas na
+                  fotografia artística
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span>•</span>
+                <span>
+                  A direção de pessoas é tão importante quanto a direção da
+                  câmera
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-black">•</span>
-                <span>A direção de pessoas é tão importante quanto a direção da câmera</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-black">•</span>
-                <span>Cada projeto é uma oportunidade de contar uma história única</span>
+                <span>
+                  Cada projeto é uma oportunidade de contar uma história única
+                </span>
               </li>
             </ul>
           </div>
@@ -84,8 +120,8 @@ export default function BlogPost() {
                   to={`/blog/${previousPost.id}`}
                   className="group block rounded-lg bg-gray-50 p-6 transition-all hover:bg-gray-100"
                 >
-                  <p className="text-sm text-gray-600">Artigo Anterior</p>
-                  <h4 className="mt-2 font-semibold text-black group-hover:underline">
+                  <p className="text-sm text-black">Artigo Anterior</p>
+                  <h4 className="mt-2 font-semibold text-gray-800 group-hover:underline">
                     {previousPost.title}
                   </h4>
                 </Link>
@@ -95,8 +131,8 @@ export default function BlogPost() {
                   to={`/blog/${nextPost.id}`}
                   className="group block rounded-lg bg-gray-50 p-6 transition-all hover:bg-gray-100"
                 >
-                  <p className="text-sm text-gray-600">Próximo Artigo</p>
-                  <h4 className="mt-2 font-semibold text-black group-hover:underline">
+                  <p className="text-sm text-black">Próximo Artigo</p>
+                  <h4 className="mt-2 font-semibold text-gray-800 group-hover:underline">
                     {nextPost.title}
                   </h4>
                 </Link>

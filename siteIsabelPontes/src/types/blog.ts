@@ -1,4 +1,9 @@
-export type BlogCategory = 'tutorial' | 'behind-the-scenes' | 'inspiration' | 'news' | 'técnica';
+export type BlogCategory =
+  | 'tutorial'
+  | 'behind-the-scenes'
+  | 'inspiration'
+  | 'news'
+  | 'técnica';
 
 export interface BlogPost {
   id: string;
