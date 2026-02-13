@@ -1,13 +1,3 @@
-/**
- * ContactSection.jsx
- * - Tailwind only (sem shadcn obrigatório)
- * - Layout: esquerda (copy + botões) / direita (form)
- * - FAQ com accordion simples
- * - CTA principal: WhatsApp
- *
- * 👉 Troque os placeholders (seu número, insta e email) abaixo.
- */
-
 export default function ContactSection() {
   // ====== EDITE AQUI ======
   const WHATSAPP_NUMBER_E164 = '554191977011'; // 55 + DDD + número (sem +, sem espaços)

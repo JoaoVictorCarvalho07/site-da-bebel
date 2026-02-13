@@ -23,11 +23,15 @@ const items: Item[] = [
   { to: '/contato', label: 'Contato' },
 ];
 
-export function HamburgerMenu() {
+export function HamburgerMenu({ className }: { className?: string }) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon" className="md:hidden">
+        <Button
+          variant="outline"
+          size="icon"
+          className={cn('md:hidden', className)}
+        >
           <Menu className="h-5 w-5" />
           <span className="sr-only">Abrir menu</span>
         </Button>

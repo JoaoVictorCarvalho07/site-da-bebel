@@ -1,64 +1,22 @@
 import type { Partner } from '@/types/partner';
+import { slugify } from '../utils/slugify';
 
-export const partners: Partner[] = [
+type PartnerInput = Omit<Partner, 'id'>;
+
+const rawPartners: PartnerInput[] = [
   {
-    id: 'partner-1',
     name: 'Milena Silva',
     category: 'models',
     image: '/cards/Milena.jpg',
     description:
       'Modelo profissional com experiência em editorials conceituais',
     instagram: '@milenasilvaa',
-    testimonial:
-      'Trabalhar com Isabel é uma experiência transformadora. Sua visão criativa e cuidado com as modelos é incomparável.',
+    testimonial: 'Trabalhar com Isabel é uma experiência transformadora...',
   },
-  {
-    id: 'partner-2',
-    name: 'Ana Costa Makeup',
-    category: 'makeup',
-    image: '/cards/Director.jpg',
-    description: 'Artista de maquiagem especializada em fotografia artística',
-    instagram: '@anacostamakeup',
-    website: 'https://anacostamakeup.com',
-    testimonial:
-      'Isabel e eu trabalhamos juntas para criar looks que complementam a visão artística de cada projeto.',
-  },
-  {
-    id: 'partner-3',
-    name: 'Agência de Modelos Amazonas',
-    category: 'agências',
-    image: '/cards/MidiaKit.jpg',
-    description:
-      'Agência de modelos conectando talentos com oportunidades profissionais',
-    website: 'https://agenciamodelosamazonas.com',
-    testimonial:
-      'A excelência de Isabel em direção é reconhecida em toda a comunidade de moda e fotografia.',
-  },
-  {
-    id: 'partner-4',
-    name: 'Studio Luz Natural',
-    category: 'brands',
-    image: '/cards/Milena.jpg',
-    description: 'Estúdio e locação para produção fotográfica profissional',
-    website: 'https://studioluznatural.com',
-  },
-  {
-    id: 'partner-5',
-    name: 'Maria Estilista',
-    category: 'stylists',
-    image: '/cards/Director.jpg',
-    description: 'Stylist com expertise em moda editorial e identidade visual',
-    instagram: '@mariaestilo',
-    testimonial:
-      'Colaborar com Isabel é sempre inspirador. Cada projeto é uma oportunidade de criar algo único.',
-  },
-  {
-    id: 'partner-6',
-    name: 'Beatriz Studio Hair',
-    category: 'makeup',
-    image: '/cards/MidiaKit.jpg',
-    description:
-      'Studio especializado em cabelo e estética para fotografia profissional',
-    instagram: '@beatrizhairstudio',
-  },
+  // outros...
 ];
+
+export const partners: Partner[] = rawPartners.map((p, index) => ({
+  ...p,
+  id: `${slugify(p.name)}-${index + 1}`,
+}));

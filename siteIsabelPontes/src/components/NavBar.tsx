@@ -14,8 +14,6 @@ export default function Navbar() {
   // Other pages use light text fixed
   const isDarkThemePage = ['/sobre', '/contato'].includes(location.pathname);
   const textColorClass = isDarkThemePage ? 'text-primary' : 'text-white';
-
-  console.log(location.pathname);
   useEffect(() => {
     const mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -88,7 +86,14 @@ export default function Navbar() {
       )}
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="font-bold max-w-50">
+        <Link
+          to="/"
+          className={cn(
+            'font-bold max-w-50',
+            visible ? 'opacity-100' : 'opacity-0',
+            'transition-opacity duration-600',
+          )}
+        >
           <img src={logoSrc} alt="" />
         </Link>
 
@@ -127,10 +132,8 @@ export default function Navbar() {
         </nav>
 
         {/* hamburger mobile */}
-        <HamburgerMenu />
+        <HamburgerMenu className="text-black  " />
       </div>
     </header>
   );
-
-  
 }

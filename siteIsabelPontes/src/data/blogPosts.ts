@@ -1,59 +1,24 @@
-import type { BlogPost } from '@/types/blog';
+import { slugify } from '../utils/slugify';
+import type { BlogPost } from '../types/blog';
 
-export const blogPosts: BlogPost[] = [
+type BlogPostInput = Omit<BlogPost, 'id'>;
+
+const rawPosts: BlogPostInput[] = [
   {
-    id: '1',
-    title: 'A Beleza da Luz Natural: Técnicas de Fotografia em Exteriores',
-    excerpt:
-      'Descubra como aproveitar a luz natural para criar retratos artísticos impactantes.',
-    content:
-      'A fotografia em luz natural é uma das técnicas mais poderosas para criar imagens autênticas e envolventes. Neste artigo, exploraremos diferentes abordagens para trabalhar com luz solar, golden hour e outras condições naturais...',
+    title: 'Técnica de Flash no Parque',
+    excerpt: '...',
+    content: '...',
     author: 'Isabel Pontes',
     category: 'técnica',
-    image: '/cards/Milena.jpg',
-    date: '2024-01-15',
+    image: '/assets/...',
+    date: '2026-02-12',
     readTime: 5,
     featured: true,
   },
-  {
-    id: '2',
-    title: 'Behind the Scenes: Fotoshoot Afrodite',
-    excerpt:
-      'Veja como foi feito o conceitual Afrodite com suas histórias fascinantes.',
-    content:
-      'Neste Behind the Scenes, você verá como planejamos e executamos o projeto Afrodite. Desde a preparação das modelos até a pós-produção, cada detalhe conta uma história...',
-    author: 'Isabel Pontes',
-    category: 'behind-the-scenes',
-    image: '/cards/Milena.jpg',
-    date: '2024-01-10',
-    readTime: 4,
-    featured: true,
-  },
-  {
-    id: '3',
-    title: 'Inspirações para Editorials Conceituais',
-    excerpt: 'Explorando os arquétipos femininos na fotografia artística.',
-    content:
-      'A fotografia editorial conceitual permite explorar temas profundos. Neste artigo, discuto como investigar e desenvolver conceitos que ressoem com seu público...',
-    author: 'Isabel Pontes',
-    category: 'inspiration',
-    image: '/cards/Director.jpg',
-    date: '2024-01-05',
-    readTime: 6,
-    featured: false,
-  },
-  {
-    id: '4',
-    title: 'Direção Criativa: Como Trabalhar com Modelos',
-    excerpt:
-      'Dicas práticas para dirigir pessoas durante um fotoshoot profissional.',
-    content:
-      'Trabalhar com modelos é uma arte em si. A comunicação clara, a empatia e a visão criativa são essenciais. Veja dicas práticas que funciona...',
-    author: 'Isabel Pontes',
-    category: 'tutorial',
-    image: '/cards/MidiaKit.jpg',
-    date: '2023-12-28',
-    readTime: 5,
-    featured: false,
-  },
+  // ...
 ];
+
+export const blogPosts: BlogPost[] = rawPosts.map((p) => ({
+  ...p,
+  id: slugify(p.title),
+}));

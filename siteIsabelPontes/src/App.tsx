@@ -8,6 +8,7 @@ import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Partners from './pages/Partners';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/parceiros" element={<Partners />} />
         <Route path="/sobre" element={<SobreMim />} />
         <Route path="/contato" element={<ContactSection />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

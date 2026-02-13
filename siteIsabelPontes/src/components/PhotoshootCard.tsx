@@ -4,9 +4,13 @@ import { Card } from '@/components/ui/card';
 
 interface PhotoshootCardProps {
   photoshoot: Photoshoot;
+  onImageClick?: () => void; // Callback para quando a imagem for clicada
 }
 
-export function PhotoshootCard({ photoshoot }: PhotoshootCardProps) {
+export function PhotoshootCard({
+  photoshoot,
+  onImageClick,
+}: PhotoshootCardProps) {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
@@ -17,8 +21,8 @@ export function PhotoshootCard({ photoshoot }: PhotoshootCardProps) {
           src={photoshoot.images[0]}
           alt={photoshoot.title}
           className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
+          onClick={onImageClick}
         />
-        <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity hover:opacity-100" />
       </div>
 
       {/* Content Section */}

@@ -16,6 +16,46 @@ type EditorialCard = {
   href: string;
 };
 
+type LinkDescription = {
+  title: string;
+  description: string;
+  href: string;
+  label: string;
+};
+
+const linkDescriptions: LinkDescription[] = [
+  {
+    title: 'Sobre Mim',
+    description: 'Conheça minha trajetória e inspirações.',
+    href: '/sobre',
+    label: 'Minha Trajetoria →',
+  },
+  {
+    title: 'Portfólio Completo',
+    description: 'Explore todos os meus projetos e ensaios fotográficos.',
+    href: '/portfolio',
+    label: 'Ver Portfólio →',
+  },
+  {
+    title: 'Blog',
+    description: 'Leia meus artigos sobre fotografia e direção criativa.',
+    href: '/blog',
+    label: 'Visitar Blog →',
+  },
+  {
+    title: 'Contato',
+    description: 'Vamos trabalhar juntos? Entre em contato comigo.',
+    href: '/contato',
+    label: 'Fale Comigo →',
+  },
+  {
+    title: 'Parceiros',
+    description: 'Conheça minha equipe e colaboradores.',
+    href: '/parceiros',
+    label: 'Ver Parceiros →',
+  },
+];
+
 const cards: EditorialCard[] = [
   {
     title: 'Fotografia artística',
@@ -65,7 +105,12 @@ export default function HomeEditorial() {
       <section className="mx-auto max-w-full px-6 py-24 ">
         <div className="grid gap-6 md:grid-cols-3">
           {cards.map((card) => (
-            <a key={card.title} href={card.href} className="group block">
+            <a
+              key={card.title}
+              href={card.href}
+              target="_blank"
+              className="group block"
+            >
               <Card className="relative h-[520px] overflow-hidden rounded-3xl border-none">
                 <img
                   src={card.image}
@@ -92,30 +137,24 @@ export default function HomeEditorial() {
 
       {/* SOBRE MIM */}
       <section className="mx-auto max-w-6xl px-6 pb-32 md:px-24">
-        {/* <div className="grid gap-10 md:grid-cols-2">
-          <h2 className="text-4xl font-semibold leading-tight">Sobre mim</h2>
+        {linkDescriptions.map((link) => (
+          <Item key={link.title} className="border  border-neutral-600 mt-10">
+            <ItemContent className="grow-3 items-center">
+              <ItemTitle className="">{link.title}</ItemTitle>
+              <ItemDescription>{link.description}</ItemDescription>
+            </ItemContent>
+            <ItemActions className="max-w-[30%] ">
+              <Button
+                className="w-auto max-w-full whitespace-break-spaces max-h-full h-auto bg-accent text-accent-foreground"
+                variant={'outline'}
+              >
+                <Link to={link.href}>{link.label}</Link>
+              </Button>
+            </ItemActions>
+          </Item>
+        ))}
 
-          <div>
-            <p className="text-lg text-muted-foreground">
-              Diretora criativa e fotógrafa artística. Trabalho com imagem como
-              linguagem, narrativa e experiência.
-            </p>
-
-            <p className="mt-4 text-lg text-muted-foreground">
-              Vou te contar como cheguei até aqui, minha trajetória e como
-              transformo ideias em projetos visuais.
-            </p>
-
-            <a
-              href="/sobre"
-              className="mt-6 inline-block text-lg font-medium text-primary underline-offset-4 hover:underline"
-            >
-              Minha trajetória →
-            </a>
-          </div>
-        </div> */}
-
-        <Item className="border  border-neutral-600">
+        {/* <Item className="border  border-neutral-600">
           <ItemContent className="grow-3 items-center">
             <ItemTitle className="">Sobre Mim</ItemTitle>
 
@@ -181,7 +220,7 @@ export default function HomeEditorial() {
               <Link to="/contato">Fale comigo →</Link>
             </Button>
           </ItemActions>
-        </Item>
+        </Item> */}
       </section>
     </main>
   );

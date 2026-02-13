@@ -10,16 +10,17 @@ import { cn } from '@/lib/utils';
 
 type Image = {
   src: string;
-  alt: string;
+  alt?: string;
   title?: string;
 };
 
 type Props = {
   items: Image[];
   className?: string;
+  gridof?: boolean;
 };
 
-export function CarouselSpacing({ items, className }: Props) {
+export function CarouselSpacing({ items, className, gridof }: Props) {
   return (
     <Carousel
       className={cn(className, 'w-full mx-5 max-w-full ml-0')}
@@ -29,8 +30,7 @@ export function CarouselSpacing({ items, className }: Props) {
         {items.map((item, index) => (
           <CarouselItem
             key={index}
-            className="p-1 
-          basis-1/3 md:basis-1/3 lg:basis-1/4 "
+            className={`p-1 ${gridof ? 'basis-1/1 md:basis-1/2 lg:basis-1/3' : 'basis-1/3 md:basis-1/3 lg:basis-1/4'}`}
           >
             <div className="p-1">
               <Card className="rounded-xl  ">

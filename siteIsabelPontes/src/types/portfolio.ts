@@ -24,7 +24,12 @@ export interface PortfolioProject {
   id: string;
   title: string;
   description: string;
-  category: 'editorial' | 'direção-criativa' | 'mídia-kit' | 'conceitual';
+  category:
+    | 'editorial'
+    | 'direção-criativa'
+    | 'mídia-kit'
+    | 'conceitual'
+    | 'independente';
   image: string;
   photoshoots: Photoshoot[];
 }
