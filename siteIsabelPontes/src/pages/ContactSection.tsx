@@ -16,7 +16,7 @@ export default function ContactSection() {
   )}&body=${encodeURIComponent('Oi! Vim pelo seu site ✨\n\nQuero falar sobre:\n')}`;
 
   return (
-    <section id="contato" className="w-full">
+    <section id="contato" className="w-full pt-12 sm:pt-16">
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16 ">
         {/* Header */}
         <div className="mb-8 md:mb-10">
@@ -98,7 +98,7 @@ export default function ContactSection() {
         </div>
 
         {/* Rodapé pequeno */}
-        <p className="mt-8 text-xs text-muted-foreground">
+        <p className="mt-8 text-xl font-bold text-muted-foreground">
           Dica: se preferir, pode mandar só “vim pelo site” que eu te guio com
           as perguntas ✨
         </p>
