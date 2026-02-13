@@ -12,7 +12,9 @@ export default function Navbar() {
   // Determine text color based on current page
   // SobreMim and Contato use inverse theme (dark text on light background)
   // Other pages use light text fixed
-  const isDarkThemePage = ['/sobre', '/contato'].includes(location.pathname);
+  const isDarkThemePage = ['/sobre', '/contato', '/blog/'].includes(
+    location.pathname,
+  );
   const textColorClass = isDarkThemePage ? 'text-primary' : 'text-white';
   useEffect(() => {
     const mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -34,7 +36,9 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const isDarkThemePage = ['/sobre', '/contato'].includes(location.pathname);
+    const isDarkThemePage = ['/sobre', '/contato', '/blog/'].includes(
+      location.pathname,
+    );
 
     const logoChange = () => {
       setLogoSrc(
@@ -45,7 +49,18 @@ export default function Navbar() {
             : '/logo/logo_isabel2.png',
       );
     };
-    logoChange();
+
+    const verificaBlogPage = () => {
+      if (
+        location.pathname.startsWith('/blog/') &&
+        location.pathname !== '/blog/'
+      ) {
+        setLogoSrc('/logo/logo_isabel2.png');
+      } else {
+        logoChange();
+      }
+    };
+    verificaBlogPage();
   }, [location.pathname]);
 
   useEffect(() => {
@@ -83,6 +98,9 @@ export default function Navbar() {
           'transition-all duration-300 bg-transparent border-transparent',
           visible ? 'translate-y-0' : '-translate-y-full',
         ].join(' '),
+        location.pathname.startsWith('/blog/') && location.pathname !== '/blog/'
+          ? 'text-black'
+          : '',
       )}
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">

@@ -20,7 +20,7 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background ">
         <section className="mx-auto max-w-2xl px-6 py-16 text-center">
           <h1 className="text-4xl font-bold text-foreground ">
             Artigo não encontrado
@@ -48,7 +48,7 @@ export default function BlogPost() {
         <img
           src={post.image}
           alt={post.title}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-[50%_30%] "
         />
       </section>
 

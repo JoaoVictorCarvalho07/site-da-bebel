@@ -10,7 +10,7 @@ const rawPosts: BlogPostInput[] = [
     content: '...',
     author: 'Isabel Pontes',
     category: 'técnica',
-    image: '/assets/...',
+    image: '/blog/tecnica-flash-parque.jpg',
     date: '2026-02-12',
     readTime: 5,
     featured: true,
