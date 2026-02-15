@@ -104,11 +104,11 @@ export default function Portfolio() {
 
                 {/* Project Image */}
                 {selectedCategory !== 'independentes' && (
-                  <div className="mb-8 h-80 overflow-hidden rounded-2xl bg-gray-300">
+                  <div className="mb-8 h-60 sm:h-80 md:h-120 overflow-hidden rounded-2xl bg-gray-300">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover transition-transform hover:scale-105"
+                      className="h-full w-full object-cover transition-transform hover:scale-105 "
                     />
                   </div>
                 )}

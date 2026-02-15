@@ -29,7 +29,8 @@ export interface PortfolioProject {
     | 'direção-criativa'
     | 'mídia-kit'
     | 'conceitual'
-    | 'independente';
+    | 'independente'
+    | 'Ensaios';
   image: string;
   photoshoots: Photoshoot[];
 }

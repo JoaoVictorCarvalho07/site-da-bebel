@@ -1,3 +1,4 @@
+import type { Partner } from '@/types/partner';
 import type {
   PortfolioProject,
   Photoshoot,
@@ -16,13 +17,23 @@ type PortfolioProjectInput = Omit<PortfolioProject, 'id' | 'photoshoots'> & {
   photoshoots: PhotoshootInput[];
 };
 
+const rawPartners: Record<string, TeamMemberInput> = {
+  milena: {
+    name: 'Milena Silva',
+    image: '/cards/Milena.jpg',
+    role: 'model',
+    instagram: '@milenasilvaa',
+  },
+  // outros...
+};
+
 // ✅ Seus dados “preenchíveis” (sem id)
 const rawPortfolio: PortfolioProjectInput[] = [
   {
     title: 'Afrodite',
     description: 'Uma exploração artística dos arquétipos femininos modernos',
     category: 'editorial',
-    image: '/cards/Milena.jpg',
+    image: '/Projetos/afrodite/capa/Milena.jpg',
     photoshoots: [
       {
         title: 'Ensaio Afrodite - Parte 1',
@@ -30,11 +41,40 @@ const rawPortfolio: PortfolioProjectInput[] = [
           'Primeiras imagens da série Afrodite com foco em graça e poder feminino',
         concept: 'Deusa mitológica na modernidade',
         date: '2024-01-10',
-        location: 'Manaus, AM',
+        location: 'Curitiba, PR',
+
         images: [
-          '/cards/Milena.jpg',
-          '/cards/Director.jpg',
-          '/cards/Milena.jpg',
+          '/Projetos/afrodite/ensaios/ensaio1/Milena.jpg',
+          '/Projetos/afrodite/ensaios/ensaio1/Milena.jpg',
+          '/Projetos/afrodite/ensaios/ensaio1/Milena.jpg',
+        ],
+        models: [rawPartners.milena],
+        helpers: [
+          {
+            name: 'Ana Costa',
+            role: 'makeup',
+            image: '/cards/Director.jpg',
+            instagram: '@anacostamakeup',
+          },
+          {
+            name: 'Lucas Ferreira',
+            role: 'assistant',
+            image: '/cards/Director.jpg',
+          },
+        ],
+        featured: true,
+      },
+      {
+        title: 'Ensaio Afrodite - Parte 2',
+        description:
+          'Segundas imagens da série Afrodite com foco em graça e poder feminino',
+        concept: 'Deusa mitológica na modernidade',
+        date: '2024-01-15',
+        location: 'Curitiba, PR',
+        images: [
+          '/Projetos/afrodite/ensaios/ensaio2/tally.jpg',
+          '/Projetos/afrodite/ensaios/ensaio2/isa.jpg',
+          '/Projetos/afrodite/ensaios/ensaio2/tally.jpg',
         ],
         models: [
           {
@@ -58,16 +98,16 @@ const rawPortfolio: PortfolioProjectInput[] = [
             image: '/cards/Director.jpg',
           },
         ],
-        featured: true,
+        featured: false,
       },
     ],
   },
   {
-    title: 'Independentes',
+    title: 'Renascentistas',
     description:
-      'Projetos autorais e experimentais que refletem minha visão artística sem restrições comerciais.',
-    category: 'conceitual',
-    image: '/cards/Director.jpg',
+      'Projetos voltados para a expressão e contemplação do tema renscentista glorificando a beleza feminina em suas diversas formas.',
+    category: 'Ensaios',
+    image: '/Projetos/renascentista/capa/Anna_Julia.png',
     photoshoots: [
       {
         title: 'Ensaio Independente - Parte 1',
@@ -94,6 +134,14 @@ const rawPortfolio: PortfolioProjectInput[] = [
         featured: false,
       },
     ],
+  },
+  {
+    title: 'Temáticos',
+    description:
+      'Conjunto de ensaios tematicos baseados em conceitos e inspirações pessoais das modelos e/ou da produção',
+    category: 'conceitual',
+    image: '/Projetos/tematicos/capa/keshy.png',
+    photoshoots: [],
   },
 ];
 

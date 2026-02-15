@@ -19,6 +19,8 @@ export function PhotoshootCard({
       <div className="relative h-64 overflow-hidden bg-gray-300">
         <img
           src={photoshoot.images[0]}
+          loading="lazy"
+          decoding="async"
           alt={photoshoot.title}
           className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
           onClick={onImageClick}
